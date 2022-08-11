@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hepatitis Predictor App</title>
+	 <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/css/mdb.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/"><b>Liver Cancer Predictor</b></a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        
+      </li>
+      
+
+
+    </ul>
+ <!--    <form class="form-inline my-2 my-lg-0" method="POST" action="/predict">
+      <input class="form-control mr-sm-2" type="text" name="namequery" placeholder="" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Predict</button>
+    </form> -->
+  </div>
+</nav>
+<br/>
+<br/>
+<!-- blue #0686e4 
+<div class="jumbotron" style="background:blue;color:#fff">
+    <div class="container">
+      <h2 class="display-3"><b>Liver Cancer Mortality Prediction</b></h2>
+      <p>Using Machine Learning </p>
+      <p><a class="btn btn-success waves-effect btn-lg" href="/" role="button">Refresh &raquo;</a></p>
+    </div>
+  </div>-->
+<style> 
+            .dh { 
+                width:100%; 
+                height:500px; 
+            } 
+            img{ 
+                width:100%; 
+                height:500px; 
+            } 
+</style>
+<style>
+
+
+.abc .btn {
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.abc .btn:hover {
+  background-color: black;
+}
+</style>
+<div class="dh ">
+
+<br><br>
+<style>
+	body {
+	  
+      
+      background: url(R.jpg) no-repeat;
+      background-size: cover;
+      background-position: center;
+  }
+#ip4 {
+    border-radius: 30px 60px 40px;
+    border: 4px solid blue;
+    padding: 20px; 
+    width: 400px;
+    height: 80px; 
+}
+
+</style>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+h1{
+  color:rgba(100, 50, 255, .8);
+  font-family: 'Algerian', Algerian;
+  color:#212121;
+}
+
+.rainbow {
+  
+   /* Font options */
+  font-family: 'Algerian', Algerian;
+  text-shadow: 2px 2px 4px #ff2600;
+  font-size:40px;
+  
+   /* Chrome, Safari, Opera */
+  -webkit-animation: rainbow 5s infinite; 
+  
+  /* Internet Explorer */
+  -ms-animation: rainbow 5s infinite;
+  
+  /* Standar Syntax */
+  animation: rainbow 5s infinite; 
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rainbow{
+  0%{color: orange;}	
+  10%{color: purple;}	
+	20%{color: black;}
+  30%{color: CadetBlue;}
+	40%{color: yellow;}
+  50%{color: coral;}
+	60%{color: violet;}
+  70%{color: cyan;}
+  80%{color: DeepPink;}
+  90%{color: DodgerBlue;}
+	100%{color: orange;}
+}
+
+/* Internet Explorer */
+@-ms-keyframes rainbow{
+   0%{color: orange;}	
+  10%{color: purple;}	
+	20%{color: black;}
+  30%{color: CadetBlue;}
+	40%{color: yellow;}
+  50%{color: coral;}
+	60%{color: violet;}
+  70%{color: cyan;}
+  80%{color: DeepPink;}
+  90%{color: DodgerBlue;}
+	100%{color: orange;}
+}
+
+/* Standar Syntax */
+@keyframes rainbow{
+    0%{color: orange;}	
+  10%{color: purple;}	
+	20%{color: red;}
+  30%{color: CadetBlue;}
+	40%{color: yellow;}
+  50%{color: coral;}
+	60%{color: green;}
+  70%{color: cyan;}
+  80%{color: DeepPink;}
+  90%{color: DodgerBlue;}
+	100%{color: orange;}
+}
+</style>
+<br><br>
+<center><h2 class="rainbow">PREDICT YOUR LIVER CANCER PROBABILITY</h2></center>
+<br>
+<div class="container">
+<form method="POST" action="{{ url_for('predict') }}">
+		
+		<!-- Clean Layout -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+		          <div class="card mb-10 shadow-sm" id="custom_card">
+		          	 <!-- Feature Starts here -->
+		          	<div class="form-group">
+		          	  <label for="age">&nbsp;&nbsp;<b>Age</b>:</label>
+		          	  <input type="number" class="form-control form-control-sm" id="age" name="age" min=7 value="7" id="ip4" required="required">
+		          	</div>
+		          	<!-- Feature Ends here -->
+		          	<!-- Feature Starts here -->
+		          	<div>
+		          	 <div class="form-check-inline">
+		          	 	<label class="form-check-label">
+		          	 	<h6>&nbsp;&nbsp;<b>Gender</b></h6>
+		          	 </label>
+		          	 </div>
+		          	<div class="form-check-inline">
+		          	  <label class="form-check-label">
+		          	    <input type="radio"  class="form-check-input" name="sex" value="1" checked="checked" required="required">Male
+		          	  </label>
+		          	</div>
+		          	<div class="form-check-inline">
+		          	  <label class="form-check-label">
+		          	    <input type="radio" class="form-check-input" name="sex" value="2" required="required">Female
+		          	  </label>
+		          	</div>
+		          	</div>
+		          	<!-- Feature Ends here -->
+		          	
+		          	
+		          	
+		          	<!-- Feature Starts here -->
+		          	<div>
+		          	 <div class="form-group">
+		          	  <label for="varices">&nbsp;&nbsp;<b>Total Bilirubin</b></label>
+		          	  
+						<input type="number" class="form-control form-control-sm" id="Total Bilirubin" name="Total Bilirubin" required="required">
+		          	  </select>
+		          	</div>
+		          	</div>
+		          	<!-- Feature Ends here -->
+					<!-- Feature Starts here -->
+					<div>
+					 <div class="form-group">
+					  <label for="varices">&nbsp;&nbsp;<b>Alkaline Phosphotase</b></label>
+					  
+					    <input type="number" class="form-control form-control-sm" id="Alkaline Phosphotase" name="Alkaline Phosphotase" required="required">
+					  </select>
+					</div>
+					</div>
+					<!-- Feature Ends here -->
+				</div>
+			</div>
+
+
+
+			<div class="col-md-5">
+		          <div class="card mb-10 shadow-sm" id="custom_card2">
+		          	
+		          	 <!-- Feature Starts here -->
+		          	<div class="form-group">
+		          	  <label for="bilirubin">&nbsp;&nbsp;<b>Alamine Aminotransferase</b></label>
+		          	  <input type="number" class="form-control form-control-sm" id="bilirubin" name="bilirubin" required="required" >
+		          	</div>
+		          	<!-- Feature Ends here -->
+		          	 <!-- Feature Starts here -->
+		          	<div class="form-group">
+		          	  <label for="alk_phosphate">&nbsp;&nbsp;<b>Aspartate Aminotransferase</b></label>
+		          	  <input type="number" class="form-control form-control-sm" id="Aspartate Aminotransferase" name="Aspartate Aminotransferase" required="required">
+		          	</div>
+		          	<!-- Feature Ends here -->
+		          	 <!-- Feature Starts here -->
+		          	<div class="form-group">
+		          	  <label for="sgot">&nbsp;&nbsp;<b>Total Protiens</b></label>
+		          	  <input type="number" class="form-control form-control-sm" id="Total Protiens" name="Total Protiens" required="required" >
+		          	</div>
+		          	<!-- Feature Ends here -->
+		          	 <!-- Feature Starts here -->
+		          	<div class="form-group">
+		          	  <label for="albumin">&nbsp;&nbsp;<b>Albumin</b></label>
+		          	  <input type="number" class="form-control form-control-sm" id="Albumin" name="Albumin" required="required">
+		          	</div>
+		          	<!-- Feature Ends here -->
+		          	 <!-- Feature Starts here -->
+		          	<div class="form-group">
+		          	  <label for="protime">&nbsp;&nbsp;<b>Albumin and Globulin Ratio</b></label>
+		          	  <input type="number" class="form-control form-control-sm" id="Albumin and Globulin Ratio" name="Albumin and Globulin Ratio" required="required">
+		          	</div>
+		          	<!-- Feature Ends here -->
+		          	
+					
+				</div>
+			</div>
+		</div>
+		</div>
+		<!-- Clean Layout ends here -->	
+
+<button type="submit" class="btn btn-primary">Predict</button>	          
+
+</form>
+</div>
+<br/>
+
+
+
+
+
+	
+	<br/>
+  <br/>
+  <br/>
+
+</div>
+   <style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #282828;
+   color: white;
+   text-align: center;
+}
+</style>
+<div class='footer'>
+           <div class="footer">
+
+
+<div>
+  </a>
+  
+  </div>
+
+           </div>
+        
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/js/mdb.min.js"></script>
